@@ -1,0 +1,7 @@
+rootProject.name = 'posRestServer'
+include "User"
+include "Master"
+include "User_Controller"
+include "Common"
+
+

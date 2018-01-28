@@ -1,0 +1,77 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.1"
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
+
+jpaModelgen {
+    library = "org.hibernate:hibernate-jpamodelgen"
+    jpaModelgenSourcesDir = "src/generated/java"
+}
+
+jar{
+    manifest {
+        attributes(
+                'Main-Class': 'com.leaf.posRestServer.Application'
+        )
+    }
+    baseName = 'application'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile project(':User')
+}
+compileJava.options.compilerArgs += ["-proc:none"]
+
+allprojects{
+    group 'com.leaf'
+    version '1.0-SNAPSHOT'
+
+
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile('mysql:mysql-connector-java')
+        compile('org.springframework.security.oauth:spring-security-oauth2')
+        compile('org.springframework.boot:spring-boot-starter-aop')
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    }
+
+
+
+}
+
+
+
+

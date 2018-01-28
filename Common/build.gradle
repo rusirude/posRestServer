@@ -1,0 +1,17 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+
+ext { springBootVersion = '1.5.8.RELEASE' }
+
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'common'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
