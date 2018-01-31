@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Rusiru on 16-Dec-17.
+ * @author : Rusiru on 16-Dec-17.
  */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -48,7 +48,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .forEach(sysUserSysRole -> {
                     sysRoles.add(sysUserSysRole.getSysRole());
                 });
-        if (sysRoles != null) {
+        if (! sysRoles.isEmpty()) {
             sysRoleAuthorityDAO.getSysRoleAuthorityBySysRoles(sysRoles)
                     .stream()
                     .forEach(roleAuthority -> {

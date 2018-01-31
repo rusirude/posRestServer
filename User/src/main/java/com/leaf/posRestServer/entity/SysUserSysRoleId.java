@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Created by Rusiru on 11-Jan-18.
+ * @author : Rusiru on 11-Jan-18.
  */
 @Embeddable
 public class SysUserSysRoleId implements Serializable{

@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeSe
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 /**
- * Created by Rusiru on 12-Dec-17.
+ * @author : Rusiru on 12-Dec-17.
  */
 
 @Configuration

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Rusiru on 06-Jan-18.
+ * @author : Rusiru on 06-Jan-18.
  */
 public interface SysRoleAuthorityDAO {
     /**

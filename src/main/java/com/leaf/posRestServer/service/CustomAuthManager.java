@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
 
 /**
- * Created by Rusiru on 07-Jan-18.
+ * @author : Rusiru on 07-Jan-18.
  */
 @Service
 public class CustomAuthManager implements AuthenticationManager{

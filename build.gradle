@@ -35,6 +35,7 @@ jar{
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile project(':User_Controller')
     compile project(':User')
 }
 compileJava.options.compilerArgs += ["-proc:none"]

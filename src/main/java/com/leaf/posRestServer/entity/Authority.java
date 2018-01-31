@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Rusiru on 06-Jan-18.
+ * @author : Rusiru on 06-Jan-18.
  */
 @Entity
 @Table(name = "authority")

@@ -3,7 +3,7 @@ package com.leaf.posRestServer.entity;
 import javax.persistence.*;
 
 /**
- * Created by Rusiru on 03-Dec-17.
+ * @author : Rusiru on 03-Dec-17.
  */
 @Entity
 @Table(name = "status_category")
