@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface StatusCategoryDAO {
 
-    StatusCategory getAllStatusCategory(Integer id);
+    StatusCategory findStatusCategory(Integer id);
 }

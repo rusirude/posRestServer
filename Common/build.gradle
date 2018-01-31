@@ -6,6 +6,12 @@ buildscript {
 ext { springBootVersion = '1.5.8.RELEASE' }
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'at.comm_unity.gradle.plugins.jpamodelgen'
+
+jpaModelgen {
+    library = "org.hibernate:hibernate-jpamodelgen"
+    jpaModelgenSourcesDir = "src/generated/java"
+}
 
 jar {
     baseName = 'common'
@@ -15,3 +21,5 @@ jar {
 dependencyManagement {
     imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
 }
+
+compileJava.options.compilerArgs += ["-proc:none"]

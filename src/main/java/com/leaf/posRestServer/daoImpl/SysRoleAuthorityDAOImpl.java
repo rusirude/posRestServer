@@ -13,10 +13,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
-import java.util.Set;
 
 /**
- * Created by Rusiru on 07-Jan-18.
+ * @author : Rusiru on 07-Jan-18.
  */
 @Repository
 public class SysRoleAuthorityDAOImpl implements SysRoleAuthorityDAO {
