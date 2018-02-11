@@ -2,6 +2,8 @@ package com.leaf.posRestServer.controller;
 
 import com.leaf.posRestServer.dao.StatusCategoryDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestC {
+
     @Autowired
     private StatusCategoryDAO statusCategoryDAO;
     @PostMapping("/login")
@@ -20,7 +23,9 @@ public class TestC {
 
     @PostMapping("/rest")
     public String home2() {
-
+        Authentication authentication = SecurityContextHolder.getContext()
+                .getAuthentication();
+       // LOG.warn("sending hello world response...");
         return "working2.......!";
     }
 }

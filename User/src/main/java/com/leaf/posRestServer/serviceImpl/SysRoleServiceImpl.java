@@ -18,6 +18,7 @@ import java.util.Date;
 @Service
 public class SysRoleServiceImpl implements SysRoleService{
 
+
     @Autowired
     SysRoleDAO sysRoleDAO;
 
@@ -29,13 +30,13 @@ public class SysRoleServiceImpl implements SysRoleService{
      */
     @Override
     @Transactional
-    public CommonResponseDTO saveSysRole(SysRoleDTO sysRoleDTO) {
+    public CommonResponseDTO saveSysRole(SysRoleDTO sysRoleDTO,String loggedUser) {
         try {
             SysRole sysRole = new SysRole();
             sysRole.setCode(sysRoleDTO.getCode());
             sysRole.setDescription(sysRoleDTO.getDescription());
             sysRole.setStatus(statusDAO.findStatusByCode(sysRoleDTO.getStatus()));
-            sysRole.setCreatedBy("system");
+            sysRole.setCreatedBy(loggedUser);
             sysRole.setCreatedOn(new Date());
             sysRoleDAO.saveSysRole(sysRole);
         }
