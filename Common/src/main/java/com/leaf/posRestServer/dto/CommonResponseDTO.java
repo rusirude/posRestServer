@@ -4,20 +4,26 @@ package com.leaf.posRestServer.dto;
  * @author : Rusiru on 31-Jan-18.
  */
 public class CommonResponseDTO {
-    private String Code;
+    private String code;
     private String message;
+    private Object object;
 
     public CommonResponseDTO(String code, String message) {
-        Code = code;
+        this.code = code;
         this.message = message;
     }
 
+    public CommonResponseDTO(String code, Object object) {
+        this.code = code;
+        this.object = object;
+    }
+
     public String getCode() {
-        return Code;
+        return code;
     }
 
     public void setCode(String code) {
-        Code = code;
+        this.code = code;
     }
 
     public String getMessage() {
@@ -26,5 +32,13 @@ public class CommonResponseDTO {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Object getObject() {
+        return object;
+    }
+
+    public void setObject(Object object) {
+        this.object = object;
     }
 }

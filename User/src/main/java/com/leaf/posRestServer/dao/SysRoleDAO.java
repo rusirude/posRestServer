@@ -1,6 +1,9 @@
 package com.leaf.posRestServer.dao;
 
+import com.leaf.posRestServer.dto.DataTableRequestDTO;
 import com.leaf.posRestServer.entity.SysRole;
+
+import java.util.List;
 
 /**
  * @author : Rusiru on 31-Jan-18.
@@ -44,4 +47,19 @@ public interface SysRoleDAO {
      * @param sysRole - System Role
      */
     void updateSysRole(SysRole sysRole);
+
+    /**
+     * Getting Slices of Sys Role Entities
+     * @param dataTableRequestDTO - data Table request from client
+     * @return List of SysRole
+     */
+    List<SysRole> searchSysRoleWithDataTableCriteria(DataTableRequestDTO dataTableRequestDTO);
+
+    /**
+     * Getting Search row count
+     * @param dataTableRequestDTO - data Table request from client
+     * @return Long
+     */
+    Long searchSysRoleCountWithDataTableCriteria(DataTableRequestDTO dataTableRequestDTO);
+
 }

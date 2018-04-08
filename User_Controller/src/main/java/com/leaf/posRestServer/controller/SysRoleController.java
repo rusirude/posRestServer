@@ -1,15 +1,13 @@
 package com.leaf.posRestServer.controller;
 
+import com.leaf.posRestServer.dto.DataTableRequestDTO;
 import com.leaf.posRestServer.dto.SysRoleDTO;
 import com.leaf.posRestServer.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : Rusiru on 31-Jan-18.
@@ -25,5 +23,30 @@ public class SysRoleController {
     @RequestMapping(value = "saveSysRole", method = RequestMethod.POST)
     public ResponseEntity<?> saveSysRole(@RequestBody SysRoleDTO sysRoleDTO) {
         return ResponseEntity.ok().body(sysRoleService.saveSysRole(sysRoleDTO, (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+    }
+
+    @PreAuthorize("hasRole('ROLE_ROLE')")
+    @RequestMapping(value = "updateSysRole", method = RequestMethod.POST)
+    public ResponseEntity<?> updateSysRole(@RequestBody SysRoleDTO sysRoleDTO) {
+        return ResponseEntity.ok().body(sysRoleService.updateSysRole(sysRoleDTO, (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+    }
+
+    @PreAuthorize("hasRole('ROLE_ROLE')")
+    @RequestMapping(value = "deleteSysRole", method = RequestMethod.POST)
+    public ResponseEntity<?> deleteSysRole(@RequestBody SysRoleDTO sysRoleDTO) {
+        return ResponseEntity.ok().body(sysRoleService.deleteSysRole(sysRoleDTO, (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+    }
+
+    @PreAuthorize("hasRole('ROLE_ROLE')")
+    @RequestMapping(value = "searchSysRole", method = RequestMethod.POST)
+    public ResponseEntity<?> searchSysRole(@RequestBody SysRoleDTO sysRoleDTO) {
+        return ResponseEntity.ok().body(sysRoleService.searchSysRole(sysRoleDTO));
+    }
+
+    @CrossOrigin
+    @PreAuthorize("hasRole('ROLE_ROLE')")
+    @RequestMapping(value = "loadAllSysRole", method = RequestMethod.POST)
+    public ResponseEntity<?> loadToGridSysRole(@RequestBody DataTableRequestDTO dataTableRequestDTO) {
+        return ResponseEntity.ok().body(sysRoleService.searchSysRolesForDataTable(dataTableRequestDTO));
     }
 }

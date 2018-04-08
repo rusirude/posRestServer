@@ -23,6 +23,30 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class GranularSecurityConfig extends GlobalMethodSecurityConfiguration {
+
+//    @Autowired
+//    private ApplicationContext appContext;
+//
+//    @Override
+//    protected MethodSecurityExpressionHandler createExpressionHandler() {
+//        DefaultMethodSecurityExpressionHandler methodSecurityExpressionHandler = new DefaultMethodSecurityExpressionHandler();
+//        methodSecurityExpressionHandler.setRoleHierarchy(roleHierarchy());
+//        methodSecurityExpressionHandler.setApplicationContext(appContext);
+//        return methodSecurityExpressionHandler;
+//    }
+//
+//    @Bean
+//    public RoleHierarchy roleHierarchy() {
+//        RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
+//        roleHierarchy.setHierarchy("ROLE_ANONYMOUS");
+//        return roleHierarchy;
+//    }
+//
+//    @Bean
+//    public RoleVoter roleVoter() {
+//        return new RoleHierarchyVoter(roleHierarchy());
+//    }
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

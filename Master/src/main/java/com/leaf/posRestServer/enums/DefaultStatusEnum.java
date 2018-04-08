@@ -1,14 +1,14 @@
 package com.leaf.posRestServer.enums;
 
-import com.leaf.posRestServer.utility.CommomConstant;
+import com.leaf.posRestServer.utility.CommonConstant;
 
 /**
  * @author : Rusiru on 31-Jan-18.
  */
 public enum DefaultStatusEnum {
-    ACTIVE(CommomConstant.DEFAULT_STATUS_ACTIVE),
-    DEACTIVE(CommomConstant.DEFAULT_STATUS_DEACTIVE),
-    DELETE(CommomConstant.DEFAULT_STATUS_DELETE);
+    ACTIVE(CommonConstant.DEFAULT_STATUS_ACTIVE),
+    DEACTIVE(CommonConstant.DEFAULT_STATUS_DEACTIVE);
+
 
     private String code;
 
@@ -22,12 +22,10 @@ public enum DefaultStatusEnum {
 
     public static DefaultStatusEnum getEnum(String code){
         switch (code){
-            case CommomConstant.DEFAULT_STATUS_ACTIVE:
+            case CommonConstant.DEFAULT_STATUS_ACTIVE:
                 return ACTIVE;
-            case CommomConstant.DEFAULT_STATUS_DEACTIVE:
-                return DEACTIVE;
             default:
-                return DELETE;
+                return DEACTIVE;
         }
     }
 }

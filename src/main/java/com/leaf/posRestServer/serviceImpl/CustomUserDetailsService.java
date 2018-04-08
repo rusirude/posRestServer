@@ -1,4 +1,4 @@
-package com.leaf.posRestServer.service;
+package com.leaf.posRestServer.serviceImpl;
 
 import com.leaf.posRestServer.dao.SysRoleAuthorityDAO;
 import com.leaf.posRestServer.dao.SysUserDAO;
@@ -52,7 +52,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             sysRoleAuthorityDAO.getSysRoleAuthorityBySysRoles(sysRoles)
                     .stream()
                     .forEach(roleAuthority -> {
-                        grantedAuthoritySet.add(new SimpleGrantedAuthority(roleAuthority.getAuthority().getDescription()));
+                        grantedAuthoritySet.add(new SimpleGrantedAuthority(roleAuthority.getAuthority().getAuthorityCode()));
                     });
         }
         return grantedAuthoritySet;

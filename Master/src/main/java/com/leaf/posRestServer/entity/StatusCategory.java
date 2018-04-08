@@ -1,6 +1,8 @@
 package com.leaf.posRestServer.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author : Rusiru on 03-Dec-17.
@@ -12,6 +14,8 @@ public class StatusCategory {
     private Long id;
     private String code;
     private String description;
+    private Set<Status> statuses = new HashSet<>(0);
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +44,14 @@ public class StatusCategory {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "statusCategory")
+    public Set<Status> getStatuses() {
+        return statuses;
+    }
+
+    public void setStatuses(Set<Status> statuses) {
+        this.statuses = statuses;
     }
 }

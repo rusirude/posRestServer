@@ -3,7 +3,7 @@ package com.leaf.posRestServer.dto;
 /**
  * @author : Rusiru on 31-Jan-18.
  */
-public class SysRoleDTO {
+public class SysRoleDTO extends CommonDTO{
     private String code;
     private String description;
     private String status;

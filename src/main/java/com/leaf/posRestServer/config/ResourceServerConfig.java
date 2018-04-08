@@ -27,24 +27,35 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/login").permitAll()
-                .anyRequest().authenticated().and().authorizeRequests();
+        http.requestMatchers()
+                .antMatchers("/oauth/authorize")
+                .and()
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .permitAll();
 
-        http.headers().addHeaderWriter((request, response) -> {
+//        http.csrf().disable().authorizeRequests()
+//                .antMatchers(HttpMethod.POST, "/login").permitAll()
+//                .anyRequest().authenticated().and().authorizeRequests();
 
-            response.addHeader("Access-Control-Allow-Origin", "*");
-            response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            response.addHeader("Access-Control-Max-Age", "3600");
-            response.addHeader("Access-Control-Allow-Headers", "authorization, content-type, xsrf-token");
-            response.addHeader("Access-Control-Expose-Headers", "xsrf-token");
 
-            if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-                response.setStatus(200);
-                return;
-            }
-
-        });
+//        http.headers().addHeaderWriter((request, response) -> {
+//
+//            response.addHeader("Access-Control-Allow-Origin", "*");
+//            response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//            response.addHeader("Access-Control-Max-Age", "3600");
+//            response.addHeader("Access-Control-Allow-Headers", "authorization, content-type, xsrf-token");
+//            response.addHeader("Access-Control-Expose-Headers", "xsrf-token");
+//
+//            if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+//                response.setStatus(200);
+//                return;
+//            }
+//
+//        });
     }
 
 

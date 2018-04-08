@@ -1,6 +1,6 @@
 package com.leaf.posRestServer.config;
 
-import com.leaf.posRestServer.service.CustomUserDetailsService;
+import com.leaf.posRestServer.serviceImpl.CustomUserDetailsService;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
